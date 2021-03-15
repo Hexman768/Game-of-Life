@@ -100,13 +100,21 @@ namespace GameOfLife
                 {
                     int neighbors = board.getLiveNeighbors(row, cell);
                     if (cell.alive && neighbors < 2)
-                        cell.alive = false;
+                        cell.nextAlive = false;
                     else if (cell.alive && neighbors <= 3)
-                        cell.alive = true;
+                        cell.nextAlive = true;
                     else if (cell.alive && neighbors > 3)
-                        cell.alive = false;
+                        cell.nextAlive = false;
                     else if (!cell.alive && neighbors == 3)
-                        cell.alive = true;
+                        cell.nextAlive = true;
+                }
+            }
+
+            foreach (Row row in board.rows)
+            {
+                foreach (Cell cell in row.cells)
+                {
+                    cell.alive = cell.nextAlive;
                 }
             }
         }

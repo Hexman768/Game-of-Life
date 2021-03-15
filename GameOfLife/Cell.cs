@@ -11,6 +11,7 @@ namespace GameOfLife
         internal int row { get; set; }
         internal int column { get; set; }
         internal bool alive { get; set; }
+        internal bool nextAlive { get; set; }
         internal Rectangle rectangle { get; set; }
 
         /// <summary>
